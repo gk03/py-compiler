@@ -1,0 +1,81 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="materialize.css">
+<script src="jquery-1.11.3.min.js"></script>
+<script src="jquery-migrate-1.2.1.min.js"></script>
+<script src="lib/codemirror.js"></script>
+<link rel="stylesheet" href="lib/codemirror.css">
+<script src="mode/python/python.js"></script>
+<link rel="stylesheet" href="theme/base16-dark.css">
+<script type="text/javascript" src="shortcut.js"></script>
+<script type="text/javascript">
+	var aa;
+	var associativeArray = {};
+	associativeArray[1] = "1. countlines:\nRead test.txt and count the lines and print the line count";
+	associativeArray[2] = "2. countwords:\nRead test.txt  and count the number of words in the file and print the word count";
+	associativeArray[3] = "3. countclean:\nRead words from test.txt and 'noise words' from noise.txt. Print words from test.txt if it is not a noise word.";
+	associativeArray[4] = "4.wordfreq:\nFrom test.txt create and print a word frequency table. A word frequency table consists of a word and the number of times it occurs in the document";
+	associativeArray[5] = "5. cleanwordfreq:\nRepeat 4 but eliminate noise words (from noise.txt) from the word frequency table ";
+	var ans = {};
+	ans[1]=3;
+	ans[2]=131;
+	ans[3]=['This', 'question', 'we', 'get', 'asked', 'repeatedly', "It's", 'important', 'question', 'too', "You'll", 'hear', 'Ruby', 'vs', 'Python', 'compared', 'all', 'time', 'If', "you're", 'unfamiliar', 'with', "it's", 'impossible', 'question', 'answer', "I've", 'used', 'both', 'quite', 'bit', 'can', 'tell', 'you', 'that', 'while', "they're", 'similar', "they're", 'also', 'different', 'in', 'some', 'important', 'ways', 'set', 'stage', 'I', 'first', 'learned', 'web', 'development', 'through', 'Python', 'Django', 'After', 'spending', 'four', 'years', 'building', 'Django', 'apps', 'I', 'got', 'job', 'doing', 'Ruby', 'on', 'Rails', 'expected', 'transition', 'be', 'really', 'simple', "That's", 'when', 'became', 'clear', 'me', 'that', 'two', 'languages', 'frameworks', 'are', 'different', 'Ruby', 'on', 'Rails', 'web', 'framework', 'built', 'using', 'Ruby', 'programming', 'language', 'while', 'Django', 'web', 'framework', 'built', 'using', 'Python', 'programming', 'language'];
+	ans[4]={'all': 1, 'both': 1, 'Rails': 2, 'years': 1, 'four': 1, 'through': 1, 'web': 3, 'languages': 1, 'to': 3, 'them': 2, 'get': 1, 'unfamiliar': 1, 'Django': 3, 'framework': 2, 'using': 2, 'bit': 1, 'set': 1, 'doing': 1, 'some': 1, 'are': 1, 'really': 1, 'ways': 1, 'got': 1, 'learned': 1, 'Ruby': 4, 'be': 1, 'we': 1, 'This': 1, 'quite': 1, 'job': 1, 'stage': 1, 'on': 2, 'language': 2, 'transition': 1, 'programming': 2, "You'll": 1, 'became': 1, 'asked': 1, 'first': 1, 'apps': 1, 'simple': 1, "It's": 1, 'impossible': 1, "you're": 1, "I've": 1, 'spending': 1, "it's": 1, 'question': 3, 'two': 1, 'too': 1, 'expected': 1, 'tell': 1, 'a': 3, 'that': 2, 'hear': 1, 'repeatedly': 1, 'with': 1, "That's": 1, 'me': 1, "they're": 2, 'frameworks': 1, 'while': 2, 'can': 1, 'similar': 1, 'and': 4, 'is': 3, 'it': 1, 'an': 2, 'To': 1, 'vs': 1, 'in': 1, 'different': 2, 'compared': 1, 'built': 2, 'Python': 3, 'After': 1, 'when': 1, 'also': 1, 'answer': 1, 'you': 1, 'development': 1, 'used': 1, 'I': 2, 'important': 2, 'The': 1, 'building': 1, 'clear': 1, 'time': 1, 'the': 7, 'If': 1};
+	ans[5]={'all': 1, 'set': 1, 'job': 1, "It's": 1, 'on': 2, 'some': 1, 'Rails': 2, 'web': 3, 'four': 1, "That's": 1, 'vs': 1, 'through': 1, 'are': 1, 'in': 1, 'years': 1, 'impossible': 1, 'simple': 1, 'really': 1, "you're": 1, 'different': 2, 'compared': 1, 'built': 2, "I've": 1, 'Python': 3, "it's": 1, 'that': 2, 'question': 3, 'two': 1, 'frameworks': 1, 'languages': 1, 'also': 1, 'when': 1, 'too': 1, 'answer': 1, 'got': 1, 'you': 1, 'stage': 1, 'Ruby': 4, 'tell': 1, 'development': 1, 'be': 1, 'we': 1, 'used': 1, 'get': 1, 'This': 1, 'doing': 1, 'unfamiliar': 1, 'quite': 1, 'expected': 1, "You'll": 1, 'important': 2, 'hear': 1, 'repeatedly': 1, 'using': 2, 'bit': 1, 'Django': 3, 'with': 1, 'learned': 1, "they're": 2, 'building': 1, 'both': 1, 'apps': 1, 'I': 2, 'language': 2, 'framework': 2, 'clear': 1, 'transition': 1, 'programming': 2, 'After': 1, 'spending': 1, 'ways': 1, 'while': 2, 'became': 1, 'can': 1, 'time': 1, 'me': 1, 'first': 1, 'similar': 1, 'asked': 1, 'If': 1};
+</script>
+</head>
+<body>
+<div class="row">
+<div class="col s8">
+	<h4>Welcome, start your code !</h4>
+	<br/>
+	<div class="row">
+ 	  <a class="col s1 waves-effect waves-light btn" onclick="qu(1)">1</a>
+      <a class="col s1 waves-effect waves-light btn" onclick="qu(2)">2</a>
+      <a class="col s1 waves-effect waves-light btn" onclick="qu(3)">3</a>
+      <a class="col s1 waves-effect waves-light btn" onclick="qu(4)">4</a>
+      <a class="col s1 waves-effect waves-light btn" onclick="qu(5)">5</a>
+	</div>
+	<div id="ques">1.Read test.txt and count the lines and print the line count.(consider the file is in the same directory as ur code is )</div>
+	<br/>
+	<br/>
+	<div style="width:700px;">
+		<textarea id="demotext" style="border: 1px solid black;">
+		</textarea>
+	</div>
+	<br/>
+	<a class="waves-effect waves-light btn" onclick="exec()" style="width:140px;">compile ?</a>
+</div>
+<div class="col s4" id="result" style="border: 1px solid black;  ">your output will be shown here !
+</div>
+</div>
+	<script type="text/javascript">
+	 shortcut.add("ctrl+enter", function() {
+        exec();
+    }); 
+    var editor = CodeMirror.fromTextArea(document.getElementById("demotext"), {
+      lineNumbers: true,
+      styleActiveLine: true,
+      matchBrackets: true,
+      mode:  "python"
+    });
+    editor.getDoc().setValue('#!/usr/bin/env python \n');
+     editor.setOption("theme", "base16-dark");
+     var j;
+     function exec(){
+     	j = editor.getValue();
+     	 var fieldNameElement = document.getElementById('result');
+     	$.post("http://localhost/py-web-compiler/compile.php", { inp: j})
+		  .done(function( data ) {
+		    fieldNameElement.innerHTML = data;
+		  });
+     }
+     function qu(aa){
+     	editor.getDoc().setValue('#!/usr/bin/env python \n');
+     	var fieldNameElement = document.getElementById('ques');
+     	fieldNameElement.innerHTML = associativeArray[aa];
+     }
+	</script>
+
+</body>
+</html>

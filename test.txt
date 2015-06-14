@@ -1,0 +1,3 @@
+This is a question we get asked repeatedly. It’s an important question too. You’ll hear Ruby vs. Python compared all the time. If you’re unfamiliar with them, it’s an impossible question to answer. I’ve used them both quite a bit and can tell you that while they’re similar, they’re also different in some important ways.
+To set the stage, I first learned web development through Python and Django. After spending four years building Django apps, I got a job doing Ruby on Rails and expected the transition to be really simple. That’s when it became clear to me that the two languages and frameworks are different.
+The Ruby on Rails web framework is built using the Ruby programming language while the Django web framework is built using the Python programming language.
